@@ -1,3 +1,6 @@
 [submodule "awrtc_signaling"]
 	path = awrtc_signaling
 	url = https://github.com/because-why-not/awrtc_signaling
+[submodule "awrtc_mediasoup"]
+	path = awrtc_mediasoup
+	url = https://github.com/because-why-not/awrtc_mediasoup.git
