@@ -1,4 +1,18 @@
 {
+    "listenInfos": [
+        {
+            "protocol": "udp",
+            "ip": "0.0.0.0",
+            "announcedIp": "__DOMAIN_NAME__",
+            "port": 20000
+        },
+        {
+            "protocol": "tcp",
+            "ip": "0.0.0.0",
+            "announcedIp": "__DOMAIN_NAME__",
+            "port": 20000
+        }
+    ],
     "log_verbose": true,
     "httpConfig":
     {
@@ -15,6 +29,11 @@
     "maxPayload": 
         1048576,
     "apps": [
+        {
+            "name": "Relay",
+            "path": "/relay",
+            "relay": true
+        },
         {
             "name": "Test",
             "path": "/"

@@ -1,24 +1,26 @@
 version: '3.7'
 services:
-  awrtc_signaling:
-    image: awrtc_signaling
+  awrtc_mediasoup:
+    image: awrtc_mediasoup
     ports:
       - "80:80"
       - "443:443"
       - "12776:80"
       - "12777:443"
+      - "20000:20000/udp"
+      - "20000:20000/tcp"
     logging:
         driver: "json-file"
         options:
             max-size: "100m"
             max-file: "10"
     volumes:
-      - ./data/awrtc_signaling/config.json:/awrtc_signaling/config.json
+      - ./data/awrtc_mediasoup/config.json:/awrtc_mediasoup/config.json
       - ./data/letsencrypt:/etc/letsencrypt
-      - ./data/awrtc_signaling/public:/awrtc_signaling/public
+      - ./data/awrtc_mediasoup/public:/awrtc_mediasoup/public
     restart: unless-stopped
   certbot:
     image: certbot/certbot
     volumes:
       - ./data/letsencrypt:/etc/letsencrypt
-      - ./data/awrtc_signaling/public:/var/www/certbot
+      - ./data/awrtc_mediasoup/public:/var/www/certbot

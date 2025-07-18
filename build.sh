@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Building docker container"
-cd awrtc_signaling
-docker build -t awrtc_signaling .
+cd awrtc_mediasoup
+docker build -t awrtc_mediasoup .
 cd ..
 
 

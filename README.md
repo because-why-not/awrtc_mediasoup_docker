@@ -1,5 +1,5 @@
 # Introduction
-This project containerizes awrtc_signaling and combines it with certbot and a few scripts to manage SSL certificates.
+This project containerizes awrtc_mediasoup and combines it with certbot and a few scripts to manage SSL certificates.
 
 # Requirements
 You need:
@@ -12,10 +12,10 @@ You need:
 Run the commands below after logging into your server. This assumes docker & git are already installed. 
 ```bash
 #Download the source code
-git clone --recursive https://github.com/because-why-not/awrtc_signaling_docker
+git clone --recursive https://github.com/because-why-not/awrtc_mediasoup_docker
 # enter project dir. All other commands below must be executed from this folder
-cd awrtc_signaling_docker
-#build docker container for awrtc_signaling
+cd awrtc_mediasoup_docker
+#build docker container for awrtc_mediasoup
 ./build.sh
 
 #run the init script to get your first SSL certificate
@@ -27,7 +27,7 @@ Use `./start.sh` to run the server and `./stop.sh` to shutdown and cleanup the d
 
 After starting you can test the server by visiting your own domain e.g.: https://your.domain.com . It should print "Running ...". 
 
-You can customize the config.json via data/awrtc_signaling/config.json .
+You can customize the config.json via data/awrtc_mediasoup/config.json .
 
 # Automatic renewal
 

@@ -10,7 +10,7 @@
 #Note let's encrypt has limits for how often you can try to get a valid certificate
 #Use the testing command for experimentation/debugging (but even this might have limits)
 . ./env.sh
-
+set -eo pipefail
 echo "Init using domain: ${domain}, email: ${email} and additional flags: ${cert_args}"
 
 if [ -z ${domain+x} ];
@@ -44,20 +44,20 @@ then
 fi
 
 echo "Generating data folder from template"
-mkdir -p data/awrtc_signaling
-cp ./template/awrtc_signaling/config.json ./data/awrtc_signaling/config.json
-cp -r ./template/awrtc_signaling/public ./data/awrtc_signaling/public
+mkdir -p data/awrtc_mediasoup
+cp ./template/awrtc_mediasoup/config.json ./data/awrtc_mediasoup/config.json
+cp -r ./template/awrtc_mediasoup/public ./data/awrtc_mediasoup/public
 
 echo "Insert domain name into the config.json"
-sed -i "s/__DOMAIN_NAME__/${domain_primary}/g" ./data/awrtc_signaling/config.json
+sed -i "s/__DOMAIN_NAME__/${domain_primary}/g" ./data/awrtc_mediasoup/config.json
 
 echo "Copy dummy init certificates to ${cert_target_dir}"
 mkdir -p ${cert_target_dir}
-cp ./awrtc_signaling/ssl.crt ${cert_target_dir}/fullchain.pem
-cp ./awrtc_signaling/ssl.key ${cert_target_dir}/privkey.pem
+cp ./awrtc_mediasoup/ssl.crt ${cert_target_dir}/fullchain.pem
+cp ./awrtc_mediasoup/ssl.key ${cert_target_dir}/privkey.pem
 
-echo "Starting awrtc_signaling"
-${docker_compose} up --force-recreate -d awrtc_signaling
+echo "Starting awrtc_mediasoup"
+${docker_compose} up --force-recreate -d awrtc_mediasoup
 #wait a bit to ensure it is fully booted up
 sleep 5
 #we remove the folder again to not interfere with certbot
