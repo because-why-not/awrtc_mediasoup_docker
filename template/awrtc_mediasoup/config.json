@@ -1,15 +1,14 @@
 {
+    "announcedAddressFromDomain": "__DOMAIN_NAME__",
     "listenInfos": [
         {
             "protocol": "udp",
             "ip": "0.0.0.0",
-            "announcedIp": "__DOMAIN_NAME__",
             "port": 20000
         },
         {
             "protocol": "tcp",
             "ip": "0.0.0.0",
-            "announcedIp": "__DOMAIN_NAME__",
             "port": 20000
         }
     ],

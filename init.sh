@@ -53,8 +53,8 @@ sed -i "s/__DOMAIN_NAME__/${domain_primary}/g" ./data/awrtc_mediasoup/config.jso
 
 echo "Copy dummy init certificates to ${cert_target_dir}"
 mkdir -p ${cert_target_dir}
-cp ./awrtc_mediasoup/ssl.crt ${cert_target_dir}/fullchain.pem
-cp ./awrtc_mediasoup/ssl.key ${cert_target_dir}/privkey.pem
+cp ./awrtc_mediasoup/fullchain.pem ${cert_target_dir}/fullchain.pem
+cp ./awrtc_mediasoup/privkey.pem ${cert_target_dir}/privkey.pem
 
 echo "Starting awrtc_mediasoup"
 ${docker_compose} up --force-recreate -d awrtc_mediasoup
