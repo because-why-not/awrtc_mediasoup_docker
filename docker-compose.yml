@@ -1,12 +1,9 @@
-version: '3.7'
 services:
   awrtc_mediasoup:
     image: awrtc_mediasoup
     ports:
       - "80:80"
       - "443:443"
-      - "12776:80"
-      - "12777:443"
       - "20000:20000/udp"
       - "20000:20000/tcp"
     logging:
